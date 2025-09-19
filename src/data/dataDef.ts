@@ -25,6 +25,7 @@ export interface Hero {
   name: string;
   description: JSX.Element;
   actions: HeroActionItem[];
+  whatsappNumber: string;
 }
 
 interface HeroActionItem {
