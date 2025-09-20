@@ -39,15 +39,18 @@ interface HeroActionItem {
  * About section
  */
 export interface About {
-  profileImageSrc?: string;
+  title: string;
   description: string;
-  aboutItems: AboutItem[];
+  brands: AboutItem[];
 }
 
 export interface AboutItem {
   label: string;
   text: string;
   Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
+  link: string;
+  logo: string;
+  name: string;
 }
 
 /**

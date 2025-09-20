@@ -1,35 +1,40 @@
-import {FC, memo, PropsWithChildren, useMemo} from 'react';
+// src/components/Sections/Skills.tsx
 
-import {Skill as SkillType, SkillGroup as SkillGroupType} from '../../../data/dataDef';
+import {FC, memo} from 'react';
+import Section from '../../Layout/Section'; 
+import Image from 'next/image';
+import {SectionId, skills} from '../../../data/data';
 
-export const SkillGroup: FC<PropsWithChildren<{skillGroup: SkillGroupType}>> = memo(({skillGroup}) => {
-  const {name, skills} = skillGroup;
+const Skills: FC = memo(() => {
+  const {experienceText, stockText, wheelImage} = skills; // Remova 'title' daqui
+
   return (
-    <div className="flex flex-col">
-      <span className="text-center text-lg font-bold">{name}</span>
-      <div className="flex flex-col gap-y-2">
-        {skills.map((skill, index) => (
-          <Skill key={`${skill.name}-${index}`} skill={skill} />
-        ))}
+    <Section className="bg-neutral-800 py-16" sectionId={SectionId.Skills}> {/* Ajustei o padding aqui */}
+      <div className="mx-auto max-w-screen-lg flex flex-col md:flex-row items-center justify-center gap-8 px-4">
+        {/* Imagem da roda - Lado Esquerdo */}
+        <div className="w-full md:w-1/2 flex justify-center">
+          {wheelImage && (
+            <div className="relative w-80 h-80 sm:w-96 sm:h-96"> {/* Tamanho fixo para a imagem */}
+              <Image
+                src={wheelImage}
+                alt="Roda automotiva"
+                layout="fill"
+                objectFit="contain" // Ajusta a imagem para caber sem cortar
+                className="rounded-lg shadow-xl"
+              />
+            </div>
+          )}
+        </div>
+
+        {/* Textos - Lado Direito */}
+        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+          <p className="text-2xl font-bold text-white mb-4">{experienceText}</p>
+          <p className="text-3xl font-bold text-white">{stockText}</p>
+        </div>
       </div>
-    </div>
+    </Section>
   );
 });
 
-SkillGroup.displayName = 'SkillGroup';
-
-export const Skill: FC<{skill: SkillType}> = memo(({skill}) => {
-  const {name, level, max = 10} = skill;
-  const percentage = useMemo(() => Math.round((level / max) * 100), [level, max]);
-
-  return (
-    <div className="flex flex-col">
-      <span className="ml-2 text-sm font-medium">{name}</span>
-      <div className="h-5 w-full overflow-hidden rounded-full bg-neutral-300">
-        <div className="h-full rounded-full bg-orange-400" style={{width: `${percentage}%`}} />
-      </div>
-    </div>
-  );
-});
-
-Skill.displayName = 'Skill';
+Skills.displayName = 'Skills';
+export default Skills;

@@ -1,12 +1,12 @@
-import {
-  AcademicCapIcon,
-  ArrowDownTrayIcon,
-  BuildingOffice2Icon,
-  CalendarIcon,
-  FlagIcon,
-  MapIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
+//import {
+ // AcademicCapIcon,
+ // ArrowDownTrayIcon,
+ // BuildingOffice2Icon,
+ // CalendarIcon,
+ // FlagIcon,
+ // MapIcon,
+ // SparklesIcon,
+//} from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
@@ -14,6 +14,14 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.png';
+//import mkr from '../images/mkr.png';
+import kr from '../images/kr.png';
+import nankang from '../images/nankang.png';
+import bar from '../images/bar.png';
+import wheelImage from '../images/wheel.png';
+import e56 from '../images/E56 D.jpg';
+import alfa from '../images/Alfa 4f SS.webp';
+import m30 from '../images/M30 BD.jpg';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
@@ -25,16 +33,16 @@ import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
 import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
 import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
-import profilepic from '../images/profilepic.jpg';
+//import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
-  About,
+//  About,
   ContactSection,
   ContactType,
   Hero,
   HomepageMeta,
   PortfolioItem,
-  SkillGroup,
+//  SkillGroup,
   Social,
   TestimonialSection,
   TimelineItem,
@@ -58,6 +66,7 @@ export const SectionId = {
   Portfolio: 'Modelos',
   Resume: 'resume',
   Skills: 'skills',
+  Lines: 'Linhas',
   Stats: 'stats',
   Testimonials: 'testimonials',
 } as const;
@@ -86,7 +95,7 @@ export const heroData: Hero = {
       href: '/assets/resume.pdf',
       text: 'Resume',
       primary: true,
-      Icon: ArrowDownTrayIcon,
+      //Icon: ArrowDownTrayIcon,
     },
     {
       href: `#${SectionId.Contact}`,
@@ -99,22 +108,34 @@ export const heroData: Hero = {
 /**
  * About section
  */
-export const aboutData: About = {
-  profileImageSrc: profilepic,
-  description: `esse é nosso time galera se liga só`,
-  aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+export const aboutData = {
+  // Título da seção, alterado de "About me" para "Nossas Marcas"
+  title: 'Nossas Marcas',
+  // Descrição breve para a seção
+  description: 'Trabalhamos apenas com as marcas mais renomadas do mercado, garantindo qualidade e design para o seu veículo.',
+  brands: [
+    {
+      name: 'KRmai',
+      logo: kr, // Mude o caminho para o seu arquivo de logo
+      link: 'https://www.pirelli.com.br/',
+    },
+    {
+      name: 'Nankang',
+      logo: nankang, // Mude o caminho para o seu arquivo de logo
+      link: 'https://www.michelin.com.br/',
+    },
+    {
+      name: 'B.A.R',
+      logo: bar, // Mude o caminho para o seu arquivo de logo
+      link: 'https://www.goodyear.com.br/',
+    },
   ],
 };
 
 /**
  * Skills section
  */
+/** 
 export const skills: SkillGroup[] = [
   {
     name: 'Spoken languages',
@@ -185,6 +206,33 @@ export const skills: SkillGroup[] = [
     ],
   },
 ];
+*/
+
+/**
+ * Skills section
+ */
+export const skills = {
+  
+  
+  // O primeiro texto
+  experienceText: 'MAIS DE 10 ANOS COM EXPERIÊNCIA EM MERCADO E RODAS AUTOMOTIVAS',
+  // O segundo texto
+  stockText: 'O ESTOQUE MAIS COMPLETO E DIVERSIFICADO DO BRASIL',
+
+  wheelImage: wheelImage,
+};
+
+export const linesData = {
+  title: 'Conheça nossas linhas', // Título para a sua nova seção
+  images: [
+    {src: e56, alt: 'Descrição da Foto 1'},
+    {src: m30, alt: 'Descrição da Foto 3'},
+    {src: alfa, alt: 'Descrição da Foto 2'},
+    {src: e56, alt: 'Descrição da Foto 4'},
+    {src: m30, alt: 'Descrição da Foto 5'},
+    {src: alfa, alt: 'Descrição da Foto 6'},
+  ],
+};
 
 /**
  * Portfolio section
